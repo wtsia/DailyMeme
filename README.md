@@ -1,1 +1,1 @@
-![CRUD Image](./images/CRUD Functionality.jpg)
+[CRUD Image](./images/CRUD Functionality.jpg)
