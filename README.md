@@ -1,1 +1,6 @@
-![CRUD Image](./images/CRUD Functionality.jpg)
+Deployment:
+https://wtsia-meme-app.herokuapp.com/
+
+Technologies Used: Express, Handlebars
+
+![CRUDpicture](./images/CRUDFunctionality.jpg)
