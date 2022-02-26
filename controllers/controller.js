@@ -19,7 +19,7 @@ router.get("/topics", (req, res) => {
 //Get memes by topic
 router.get("/topics/:topic", function(req, res) {
     console.log(`finding meme by topic`)
-    var query = {};
+    let query = {};
     if (req.params.topic) {
         query.topic = req.params.topic;
     }
@@ -53,17 +53,19 @@ router.post('/', (req, res) => {
 })
 
 //update contents of a meme
-router.put('/:id', (req, res) => {
+router.put('/:id?', (req, res) => {
     memeModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-        .then(myInstances => {
+        .then(() => {
+        console.log("update content in progress")
         res.redirect('/')
     })
 })
 
 //delete a meme
-router.delete('/:id', (req, res) => {
+router.delete('/:id?', (req, res) => {
     memeModel.findOneAndRemove({ _id: req.params.id })
         .then(() => {
+        console.log("delete content in progress")
         res.redirect('/')
     })
 })
