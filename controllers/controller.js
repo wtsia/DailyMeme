@@ -53,7 +53,7 @@ router.post("/", (req, res) => {
 });
 
 //update contents of a meme
-router.put('/:id', (req, res) => {u
+router.put('/:id', (req, res) => {
     memeModel.findOneAndReplace({ _id: req.params.id }, req.body, { new: true })
         .then(() => {
         res.redirect('/');

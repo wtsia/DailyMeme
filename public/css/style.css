@@ -6,11 +6,13 @@ header {
     justify-content: space-evenly;
     padding: 30px;
 }
+
 h1, h2 {
     color: white;
     margin: 5px;
     margin-right: 10px;
 }
+
 img {
     max-width: 600px;
     margin: 10px;
@@ -19,6 +21,7 @@ img {
     margin-right: auto;
     width: 50%;
 }
+
 body {
     background-color: rgb(61, 55, 55);
     color: black;
@@ -48,17 +51,22 @@ nav {
 .navigation {
     padding: 10px;
 }
+
 .navigation:hover {
     background: rgb(145, 136, 145);
 }
-.whiteBackground {
-    background: white;
+
+.edit {
+    background: rgb(61, 55, 55);
+    color: white;
     padding: 5px;
 }
-.reverseUnoCard {
+
+.memeCard {
     display: flex;
     flex-direction: column-reverse;   
 }
+
 p {
     margin: 5px;
     font-size: 17px;
