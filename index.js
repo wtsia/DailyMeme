@@ -1,6 +1,6 @@
 const express = require('express');
 const methodOverride = require('method-override');
-const dotEnv = require('dotenv');
+const dotEnv = require('dotenv').config();
 const parser = require('body-parser');
 const hbs = require('hbs');
 const path = require('path')
@@ -13,7 +13,6 @@ app.set("view engine", "hbs");
 app.use(cors())
 app.use(parser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(dotEnv.config());
 app.use(parser.json());
 app.use("/", controller);
 app.use(express.static(path.join(__dirname, '/public')));
