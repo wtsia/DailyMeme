@@ -1,5 +1,5 @@
 ### Deployment:
-https://wtsia-meme-app.herokuapp.com/
+https://the-daily-meme.herokuapp.com/
 
 ### Technologies Used: 
 Express, Handlebars, Node
