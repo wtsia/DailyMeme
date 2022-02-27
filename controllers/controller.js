@@ -58,26 +58,20 @@ router.post('/', (req, res) => {
 });
 
 //update contents of a meme
-router.put('/:id', (req, res) => {
+router.put('/edit/:id', (req, res) => {
     console.log(`updating a meme`);
     console.log(req.params.id);
     memeModel.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
         .then(() => {
-        res.status(201).json({
-            message: `meme has updated successfully`,
-        });
         res.redirect('/');
     });
 });
 
 //delete a meme
-router.delete('/:id', (req, res) => {
+router.delete('/edit/:id', (req, res) => {
     console.log(`deleting a meme`);u
     memeModel.findByIdAndDelete({ _id: req.params.id })
         .then(() => {
-        res.status(301).json({
-            message: `meme has deleted successfully`,
-        });
         res.redirect('/')
     });
 });
