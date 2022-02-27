@@ -1,6 +1,6 @@
 const express = require('express');
-const parser = require('body-parser');
 const methodOverride = require('method-override');
+const parser = require('body-parser');
 const hbs = require('hbs');
 const path = require('path')
 const controller = require('./controllers/controller');

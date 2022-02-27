@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 
 //Topics list
 router.get("/topics", (req, res) => {
-    console.log(`showing topics`)
+    console.log(`showing topics`);
     memeModel.find({ _topic: req.params.topic })
         .then(myInstances => 
             res.render("topic", { myInstances })
@@ -19,7 +19,7 @@ router.get("/topics", (req, res) => {
 
 //Get memes by topic
 router.get("/topics/:topic", function(req, res) {
-    console.log(`finding meme by topic`)
+    console.log(`finding meme by topic`);
     let query = {};
     if (req.params.topic) {
         query.topic = req.params.topic;
@@ -30,7 +30,7 @@ router.get("/topics/:topic", function(req, res) {
 
 //page to edit a meme
 router.get('/edit/:id', (req, res) => {
-    console.log(`showing edit by id page`)
+    console.log(`showing edit by id page`);
     memeModel.findOne({_id: req.params.id})
         .then(myInstances => {
         res.render("edit", { myInstances })
@@ -39,18 +39,18 @@ router.get('/edit/:id', (req, res) => {
 
 //about us page
 router.get("/instructions", (req, res) => {
-    res.render("instructions")
+    res.render("instructions");
 });
 
 //shows postmeme page
 router.get('/postmeme', (req, res) => {
-    console.log(`show post meme page`)
+    console.log(`show post meme page`);
     res.render('postmeme');
 });
 
 //post a new meme
 router.post('/', (req, res) => {
-    console.log(`posting meme`)
+    console.log(`posting meme`);
     memeModel.create(req.body)
         .then(myNewItem => {
         res.redirect('/')
@@ -59,7 +59,8 @@ router.post('/', (req, res) => {
 
 //update contents of a meme
 router.put('/:id', (req, res) => {
-    console.log(`updating a meme`)
+    console.log(`updating a meme`);
+    console.log(req.params.id);
     memeModel.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
         .then(() => {
         res.status(201).json({
@@ -71,7 +72,7 @@ router.put('/:id', (req, res) => {
 
 //delete a meme
 router.delete('/:id', (req, res) => {
-    console.log(`deleting a meme`)
+    console.log(`deleting a meme`);u
     memeModel.findByIdAndDelete({ _id: req.params.id })
         .then(() => {
         res.status(301).json({
