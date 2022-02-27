@@ -29,7 +29,7 @@ router.get("/topics/:topic", function(req, res) {
 });
 
 //page to edit a meme
-router.get('/edit/:id', (req, res) => {
+router.get("/edit/:id", (req, res) => {
     console.log(`showing edit by id page`);
     memeModel.findOne({_id: req.params.id})
         .then(myInstances => {
@@ -43,13 +43,13 @@ router.get("/instructions", (req, res) => {
 });
 
 //shows postmeme page
-router.get('/postmeme', (req, res) => {
+router.get("/postmeme", (req, res) => {
     console.log(`show post meme page`);
     res.render('postmeme');
 });
 
 //post a new meme
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
     console.log(`posting meme`);
     memeModel.create(req.body)
         .then(myNewItem => {
@@ -58,19 +58,19 @@ router.post('/', (req, res) => {
 });
 
 //update contents of a meme
-router.put('/edit/:id', (req, res) => {
+router.put("/:id", (req, res) => {
     console.log(`updating a meme`);
     console.log(req.params.id);
-    memeModel.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    memeModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
         .then(() => {
         res.redirect('/');
     });
 });
 
 //delete a meme
-router.delete('/edit/:id', (req, res) => {
+router.delete("/:id", (req, res) => {
     console.log(`deleting a meme`);u
-    memeModel.findByIdAndDelete({ _id: req.params.id })
+    memeModel.findOneAndDelete({ _id: req.params.id })
         .then(() => {
         res.redirect('/')
     });

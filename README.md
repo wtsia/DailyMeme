@@ -8,5 +8,7 @@ Express, Handlebars, Node
 
 Relevant Resources: https://github.com/expressjs/method-override
 
+TODO: Cumulative Likes, Storing Likes
+
 ## Attributions:
 Heart icons created by Freepik - Flaticon

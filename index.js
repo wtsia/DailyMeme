@@ -10,7 +10,9 @@ const app = express();
 app.set("view engine", "hbs");
 app.use(cors())
 app.use(parser.urlencoded({ extended: true }));
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method", {
+  methods: ["POST", "GET"]
+}));
 app.use(parser.json());
 app.use("/", controller);
 app.use(express.static(path.join(__dirname, '/public')));
