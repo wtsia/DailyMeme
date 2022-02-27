@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
 
 //Topics list
 router.get("/topics", (req, res) => {
+    console.log(`showing topics`)
     memeModel.find({ _topic: req.params.topic })
         .then(myInstances => 
             res.render("topic", { myInstances })
@@ -29,46 +30,55 @@ router.get("/topics/:topic", function(req, res) {
 
 //page to edit a meme
 router.get('/edit/:id', (req, res) => {
+    console.log(`showing edit by id page`)
     memeModel.findOne({_id: req.params.id})
         .then(myInstances => {
         res.render("edit", { myInstances })
-    })
-})
+    });
+});
 
 //about us page
 router.get("/instructions", (req, res) => {
     res.render("instructions")
 });
 
+//shows postmeme page
 router.get('/postmeme', (req, res) => {
+    console.log(`show post meme page`)
     res.render('postmeme');
-})
+});
 
 //post a new meme
 router.post('/', (req, res) => {
+    console.log(`posting meme`)
     memeModel.create(req.body)
         .then(myNewItem => {
         res.redirect('/')
-    })
-})
+    });
+});
 
 //update contents of a meme
-router.put('/:id?', (req, res) => {
-    memeModel.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+router.put('/:id', (req, res) => {
+    console.log(`updating a meme`)
+    memeModel.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
         .then(() => {
-        console.log("update content in progress")
-        res.redirect('/')
-    })
-})
+        res.status(201).json({
+            message: `meme has updated successfully`,
+        });
+        res.redirect('/');
+    });
+});
 
 //delete a meme
-router.delete('/:id?', (req, res) => {
-    memeModel.findOneAndRemove({ _id: req.params.id })
+router.delete('/:id', (req, res) => {
+    console.log(`deleting a meme`)
+    memeModel.findByIdAndDelete({ _id: req.params.id })
         .then(() => {
-        console.log("delete content in progress")
+        res.status(301).json({
+            message: `meme has deleted successfully`,
+        });
         res.redirect('/')
-    })
-})
-
+    });
+});
 
 module.exports = router

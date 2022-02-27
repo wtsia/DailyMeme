@@ -8,19 +8,12 @@ const cors = require('cors')
 const app = express();
 
 app.set("view engine", "hbs");
-
 app.use(cors())
-
 app.use(parser.urlencoded({ extended: true }));
-
 app.use(methodOverride('_method'));
-
 app.use(parser.json());
-
 app.use("/", controller);
-
 app.use(express.static(path.join(__dirname, '/public')));
-
 app.set("port", process.env.PORT || 3301);
 
 app.listen(app.get("port"), () => {

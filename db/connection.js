@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
 
 mongoose.Promise = Promise
 
+// mongodb+srv://dbUser:<password>@cluster0.dgycw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
 let mongoURI = "";
 if (process.env.NODE_ENV === "production") {
   mongoURI = process.env.DB_URL;

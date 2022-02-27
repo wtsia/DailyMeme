@@ -3,7 +3,7 @@
 <div class="whiteBackground">
   <img src="{{myInstances.url}}">
 
-  <form action="/{{myInstance.id}}?_method=put" method="post">
+  <form action="/{{myInstance.id}}?_method=PUT" method="put">
     <p>
       <label>Change Name:</label>
       <input type="text" value="{{ myInstances.name }}" name="name"/>
@@ -20,10 +20,10 @@
         <label>Change topic: </label>
         <input type="text" value="{{ myInstances.topic }}" name="topic"/>
     </p>
-    <input type="submit" value="Update" />
+    <input type="submit" value="UPDATE">
   </form>
 
-  <form action="/{{myInstance.id}}?_method=delete" method="delete">
-    <input type="submit" value="Delete">
+  <form action="/{{myInstance.id}}?_method=DELETE" method="delete">
+    <input type="submit" value="DELETE">
   </form>
 </div>
