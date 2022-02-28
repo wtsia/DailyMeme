@@ -4,10 +4,10 @@
         {{myInstance.name}}<p>{{myInstance.description}}</p>
         <img src="{{myInstance.url}}">
         <div>
-          <img id="icon" src="/images/emptyLike.png" onclick="this.src='/images/fullLike.png'">
+          <img id="heart" src="/images/emptyLike.png" onclick="this.src='/images/fullLike.png'">
         </div>
         <form action="/edit/{{ myInstance.id }}">
-            <input type="submit" value="Edit" />
+            <input class="icon" type="submit" value="Edit">
         </form>
       </li>
   {{/each}}

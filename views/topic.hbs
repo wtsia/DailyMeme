@@ -1,10 +1,11 @@
-<form action="/topics/{{ myInstances.topic }}?_method=get" method="get">
-    <input type="text" value="{{ myInstances.topic }}">
+<form method="GET" action="/topics/{{ myInstances.topic }}">
+    <input type="text" name="topic" value="{{ myInstances.topic }}">
     <input type="submit" value="Search">
 </form>
+
 <h2>Topics of recent posts:</h2>
   {{#each myInstances as |myInstance|}}
-    <li>
+    <li class="topicCard">
       <a href="/topics/{{ myInstance.topic }}">{{myInstance.topic}}</a>
     </li>
   {{/each}}
