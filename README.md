@@ -4,7 +4,7 @@ https://the-daily-meme.herokuapp.com/
 ### Technologies Used: 
 Express, Handlebars, Node
 
-![CRUDpicture](./Repo Images/CRUDpicture.png)
+![CRUDpicture](./Repo Images/CRUDFunctionality.jpg)
 
 Relevant Resources: https://github.com/expressjs/method-override
 
