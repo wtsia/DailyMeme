@@ -17,12 +17,10 @@ router.get("/topics", (req, res) => {
 });
 
 //Get memes by topic
-router.get("/topics/:topic", (req, res) =>   {
+router.get("/topics/:topic", (req, res) => {
     let query = {};
-    console.log("query is " + req.params.topic + ". Sending to query form data");
     if (req.params.topic) {
         query.topic = req.params.topic;
-        console.log(query.topic + "is query.topic");
     }
     memeModel.find(query)
         .then(myInstances => res.render("searchTopic", { myInstances }));
